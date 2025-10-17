@@ -1,103 +1,112 @@
 import Image from "next/image";
+import Navbar from "../component/Navbar";
+import VaultInfo from "@/component/home/VaultInfo";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <div className="mx-auto w-[375px]">
+        <Navbar />
+        <main className="flex flex-col gap-10 px-4 pb-10">
+          <div>
+            <div className="flex items-center justify-between py-2">
+              <h1 className="text-[32px] font-medium tracking-tight">Vault</h1>
+              <div className="flex h-[30px] items-center gap-2 rounded-full border border-[#2F332F] px-2.5">
+                <span className="text-afgrey text-[12px] leading-none">
+                  Total Supply
+                </span>
+                <span className="text-[14px] font-medium leading-none">
+                  $7.45m
+                </span>
+              </div>
+            </div>
+            <div>
+              <p className="text-afgrey text-[14px] tracking-tight">
+                Supply your tokens into a secure Vault to effortlessly earn
+                optimized yield
+              </p>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <div>
+            <h1 className="font-medium tracking-tight">
+              View My Vaults <span className="text-afgrey">(2)</span> &gt;
+            </h1>
+            <div className="bg-afbg_grey mt-4 flex w-full justify-between rounded-xl p-4 font-medium">
+              <div>
+                <div className="text-afgrey flex text-xs">
+                  <h2 className="">My Total Supply</h2>
+                  <Image
+                    src="/icons/info.svg"
+                    alt="Logo"
+                    width={12}
+                    height={12}
+                  />
+                </div>
+                <h2 className="text-lg tracking-tight">$0.00</h2>
+              </div>
+
+              <div>
+                <div className="text-afgrey flex text-xs">
+                  <h2 className="">My Total APY</h2>
+                  <Image
+                    src="/icons/info.svg"
+                    alt="Logo"
+                    width={12}
+                    height={12}
+                  />
+                </div>
+                <h2 className="text-lg tracking-tight">0.00%</h2>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h1 className="text-lg font-medium tracking-tight">All Vaults</h1>
+            <div className="bg-afbg_grey flex h-10 w-full items-center rounded-full px-3">
+              <Image
+                src="/icons/search.svg"
+                alt="Logo"
+                width={18}
+                height={18}
+              />
+              <input
+                type="text"
+                placeholder="Search"
+                className="bg-afbg_grey placeholder:text-afgrey ml-2 w-full pr-4 text-xs font-medium outline-none"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <div className="text-afgrey flex justify-between text-sm">
+                <h2>Vault</h2>
+                <h2>APY</h2>
+              </div>
+              <div className="flex flex-col gap-4">
+                <VaultInfo
+                  imgSrc="/icons/USDT.svg"
+                  tokenName="USDT"
+                  apy={6.84}
+                  totalAmount="225,391.26"
+                  glow
+                />
+                <VaultInfo
+                  imgSrc="/icons/XAUT.svg"
+                  tokenName="ETH"
+                  apy={6.84}
+                  totalAmount="225,391.26"
+                />
+                <VaultInfo
+                  imgSrc="/icons/TON.svg"
+                  tokenName="TON"
+                  apy={6.84}
+                  totalAmount="225,391.26"
+                />
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
