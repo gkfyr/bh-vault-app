@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 interface VaultInfoProps {
@@ -6,11 +8,13 @@ interface VaultInfoProps {
   apy: number;
   glow?: boolean;
   imgSrc: string;
+  loading?: boolean;
+  error?: string | null;
 }
 
 export default function VaultInfo(props: VaultInfoProps) {
   return (
-    <div className="flex items-center justify-between font-medium tracking-tight">
+    <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
         <div className="h-6 w-6 overflow-hidden rounded-full">
           <Image src={props.imgSrc} alt="Logo" width={24} height={24} />
@@ -19,7 +23,13 @@ export default function VaultInfo(props: VaultInfoProps) {
           <h2 className="">
             {props.tokenName} <span className="text-afgrey text-sm">Vault</span>
           </h2>
-          <p className="text-afgrey text-xs">${props.totalAmount}</p>
+          {props.loading ? (
+            <div className="bg-[#222] mt-1 h-3 w-24 animate-pulse rounded" />
+          ) : props.error ? (
+            <p className="text-red-400 text-xs">{props.error}</p>
+          ) : (
+            <p className="text-afgrey text-xs">${props.totalAmount}</p>
+          )}
         </div>
       </div>
       <div
