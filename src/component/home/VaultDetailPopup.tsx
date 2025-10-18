@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface VaultDetailProps {
   tokenName: string;
@@ -14,6 +15,11 @@ interface VaultDetailProps {
 }
 
 export default function VaultDetailPopup(props: VaultDetailProps) {
+  const router = useRouter();
+  const goToDetail = () => {
+    const id = encodeURIComponent(props.tokenName);
+    router.push(`/${id}`);
+  };
   return (
     <>
       <div className="flex items-start justify-between py-2">
@@ -34,11 +40,17 @@ export default function VaultDetailPopup(props: VaultDetailProps) {
         <div>
           <p className="text-afgrey text-xs">TVL</p>
           {props.loading ? (
-            <div className="bg-[#222] mt-1 h-5 w-28 animate-pulse rounded" />
+            <div className="mt-1 h-5 w-28 animate-pulse rounded bg-[#222]" />
           ) : props.error ? (
-            <p className="text-red-400 text-xs">{props.error}</p>
+            <p className="text-xs text-red-400">{props.error}</p>
           ) : (
-            <p className="text-lg">${props.tvl.toLocaleString()}</p>
+            <p className="text-lg">
+              $
+              {props.tvl.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })}
+            </p>
           )}
         </div>
         <div className="">
@@ -56,10 +68,16 @@ export default function VaultDetailPopup(props: VaultDetailProps) {
       </div>
 
       <div className="text-afgrey mt-4 flex items-center justify-between gap-4 rounded-t-xl bg-[#1D1E1D] p-4">
-        <button className="text bg-afgreen h-10 w-full rounded-lg">
+        <button
+          className="bg-afgreen h-10 w-full rounded-lg text-[#17330D]"
+          onClick={goToDetail}
+        >
           Supply
         </button>
-        <button className="text bg-afgreen h-10 w-full rounded-lg">
+        <button
+          className="h-10 w-full rounded-lg bg-[#99BDB4] text-[#17330D]"
+          onClick={goToDetail}
+        >
           Withdraw
         </button>
       </div>

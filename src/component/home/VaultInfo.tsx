@@ -24,9 +24,9 @@ export default function VaultInfo(props: VaultInfoProps) {
             {props.tokenName} <span className="text-afgrey text-sm">Vault</span>
           </h2>
           {props.loading ? (
-            <div className="bg-[#222] mt-1 h-3 w-24 animate-pulse rounded" />
+            <div className="mt-1 h-3 w-24 animate-pulse rounded bg-[#222]" />
           ) : props.error ? (
-            <p className="text-red-400 text-xs">{props.error}</p>
+            <p className="text-xs text-red-400">{props.error}</p>
           ) : (
             <p className="text-afgrey text-xs">${props.totalAmount}</p>
           )}

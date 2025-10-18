@@ -30,9 +30,9 @@ export default function VaultListWithPopup() {
   };
 
   const multipliers: Record<string, number> = {
-    ETH: 10, // example units basis for TVL
-    USDT: 225000,
-    USDC: 215000,
+    ETH: 1, // example units basis for TVL
+    USDT: 1,
+    USDC: 1,
   };
 
   const [prices, setPrices] = useState<Record<string, number>>({});
@@ -123,7 +123,7 @@ export default function VaultListWithPopup() {
 
   const tvlFromAmount = (amount: string) => {
     const n = Number(amount.replace(/,/g, ""));
-    return Number.isFinite(n) ? Math.round(n) : 0;
+    return Number.isFinite(n) ? n : 0;
   };
 
   return (
@@ -166,7 +166,7 @@ export default function VaultListWithPopup() {
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-black/50 transition-opacity duration-300"
+          className="fixed inset-0 z-40 bg-black/50 transition-opacity duration-1000"
           onClick={close}
         />
       )}
